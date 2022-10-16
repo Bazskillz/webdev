@@ -1,7 +1,7 @@
 <template>   
     <form @submit.prevent="submitForm">
         <label>Email:</label>
-        <input type="email" required v-model="email">  
+        <input type="username" required v-model="username">  
         <label>Password::</label>
         <input type="password" required v-model="password">
         <div class="submit">
@@ -18,19 +18,18 @@ import axios from 'axios';
 export default {
     data(){
         return {
-            email: '',
+            username: '',
             password:''
             }
         },
     methods: {
         async submitForm(){
-            axios.post("http://localhost:3001/auth/signup", JSON.stringify({
-                email: this.email,
-                password: this.password 
-            })
-        )}
+            axios.post("http://localhost:3000/auth/login", {
+                username: this.username,
+                password: this.password }
+            )
+        }
     }
-
 }
 
 </script>

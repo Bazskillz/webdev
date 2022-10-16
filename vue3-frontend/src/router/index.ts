@@ -24,9 +24,9 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
-      path: '/buttons',
-      name: 'buttons',
-      component: () => import('../views/Buttons.vue')
+      path: '/calendar',
+      name: 'calendar',
+      component: () => import('../views/Calendar.vue')
     },
     {
       path: '/cards',

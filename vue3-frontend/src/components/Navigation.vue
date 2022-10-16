@@ -46,7 +46,7 @@
               class="absolute top-0 right-0 inline-block w-3 h-3 transform translate-x-1 -translate-y-1 bg-red-600 border-2 border-white rounded-full dark:border-gray-800"></span>
           </button>
           <template v-if="isNotificationsMenuOpen">
-            <ul x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
+            <ul x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 al"
               x-transition:leave-end="opacity-0" v-on:click="toggleNotificationsMenu"
               @keydown.escape="toggleNotificationsMenu"
               class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700"
@@ -86,7 +86,7 @@
             v-on:click="toggleProfileMenu" @keydown.escape="toggleProfileMenu" aria-label="Account"
             aria-haspopup="true">
             <img class="object-cover w-8 h-8 rounded-full"
-              src="https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=aa3a807e1bbdfd4364d1f449eaa96d82"
+              src="../assets/profile.png"
               alt="" aria-hidden="true" />
           </button>
           <template v-if="isProfileMenuOpen">

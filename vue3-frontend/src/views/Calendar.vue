@@ -3,7 +3,7 @@
     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
       Buttons
     </h2>
-    <CTA />
+
     <!-- Button sizes -->
     <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
       Sizes
@@ -44,7 +44,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { CheckIcon, DocumentAddIcon, HomeIcon } from "@heroicons/vue/outline";
-import CTA from "../components/CTA.vue";
 import Button from "../components/Button.vue";
 
 const buttons = ref([

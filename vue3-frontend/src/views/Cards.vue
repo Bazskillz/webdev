@@ -4,8 +4,6 @@
       Cards
     </h2>
 
-    <CTA />
-
     <!-- Big section cards -->
     <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
       Big section cards

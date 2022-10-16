@@ -1,7 +1,6 @@
 <template>
   <main>
-    <CTA />
-
+    
     <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
       <!-- Card -->
       <Card>
@@ -164,7 +163,6 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import CTA from '@/components/CTA.vue';
 import Card from "@/components/Card.vue";
 import TableRow from "@/components/tables/TableRow.vue";
 import { UserGroupIcon, CashIcon, ShoppingCartIcon, ChatIcon } from '@heroicons/vue/outline';
