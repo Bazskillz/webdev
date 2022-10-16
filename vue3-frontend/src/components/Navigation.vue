@@ -1,6 +1,6 @@
 <template>
   <header class="z-10 py-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
-    <div class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300">
+    <div class="container  h-full px-6 mx-auto text-purple-600 dark:text-purple-300">
       <!-- Mobile hamburger -->
       <button class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
         v-on:click="toggleSideMenu" aria-label="Menu">
@@ -92,7 +92,7 @@
           <template v-if="isProfileMenuOpen">
             <ul x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100"
               x-transition:leave-end="opacity-0" v-on:click="toggleProfileMenu" @keydown.escape="toggleProfileMenu"
-              class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
+              class="absolute left-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
               aria-label="submenu">
               <li class="flex">
                 <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"

@@ -163,8 +163,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import Card from "@/components/Card.vue";
-import TableRow from "@/components/tables/TableRow.vue";
+
+import TableRow from "../components/tables/TableRow.vue";
 import { UserGroupIcon, CashIcon, ShoppingCartIcon, ChatIcon } from '@heroicons/vue/outline';
 
 const people = ref([

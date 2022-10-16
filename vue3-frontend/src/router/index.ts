@@ -27,17 +27,7 @@ const router = createRouter({
       path: '/calendar',
       name: 'calendar',
       component: () => import('../views/Calendar.vue')
-    },
-    {
-      path: '/cards',
-      name: 'cards',
-      component: () => import('../views/Cards.vue')
-    },
-    {
-      path: '/tables',
-      name: 'tables',
-      component: () => import('../views/Tables.vue')
-    },
+    }
   ]
 })
 
