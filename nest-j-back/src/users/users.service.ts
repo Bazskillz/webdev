@@ -15,4 +15,13 @@ export class UsersService {
     async getUser(query: object ): Promise<User> {
         return this.userModel.findOne(query);
     }
+    async usernameExists(username: string ): Promise<Boolean> {
+        const user = await this.getUser({ username });
+        if (!user) {
+            return false
+        } else {
+            return true;
+        }
+    }
+
 }

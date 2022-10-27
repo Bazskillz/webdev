@@ -1,10 +1,13 @@
 <template>   
     <form @submit.prevent="submitForm">
         <label>Email:</label>
-        <input type="username" required v-model="username">  
-        <label>Password::</label>
+        <input type="username" required v-model="username" @keyup="validateUsername">  
+        <label>Password:</label>
         <input type="password" required v-model="password">
-        <div class="submit">
+        <div class="text-red">
+        <p v-if="this.emailMessage" class="inline-block align-baseline font-bold text-sm text-red-500 hover:text-red-800"> Email Taken!</p>
+        </div>
+        <div class="submit text-green-700">
             <button>Create Account</button>
         </div>
     </form>    
@@ -18,8 +21,9 @@ import axios from 'axios';
 export default {
     data(){
         return {
-            username: '',
-            password:''
+            username:'',
+            password:'',
+            emailMessage:false
             }
         },
     methods: {
@@ -27,7 +31,7 @@ export default {
             axios.post("http://localhost:3000/auth/signup", {
                 username: this.username,
                 password: this.password }
-            )
+            ).catch((error) => this.emailMessage = true);
         }
     }
 }
