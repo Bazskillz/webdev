@@ -1,13 +1,21 @@
-<template>   
-    <form @submit.prevent="submitForm">
-        <label>Email:</label>
-        <input type="username" required v-model="username">  
-        <label>Password::</label>
-        <input type="password" required v-model="password">
-        <div class="submit">
-            <button>Create Account</button>
-        </div>
-    </form>    
+<template>
+  <div class="register-form-container">
+  <h1 class="text-4xl text-center bg-gray-800">Please login below</h1>    
+    <div class="flex items-center justify-center h-screen bg-gray-800">
+        
+        <form class="flex flex-col space-y-6 w-96 p-6 bg-white rounded-lg shadow-lg" @submit.prevent="submitForm">
+            <div class="flex flex-col space-y-1">
+            <label class="text-gray-700 font-medium" for="username">Email:</label>
+            <input id="username" class="rounded-lg border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 px-4 py-2" type="username" required v-model="username">
+            </div>
+            <div class="flex flex-col space-y-1">
+            <label class="text-gray-700 font-medium" for="password">Password:</label>
+            <input id="password" class="rounded-lg border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 px-4 py-2" type="password" required v-model="password">
+            </div>
+            <button class="bg-green-500 text-white rounded-lg px-4 py-2 hover:bg-green-600 transition duration-200" type="submit">Sign In</button>
+        </form>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -24,7 +32,7 @@ export default {
         },
     methods: {
         async submitForm(){
-            axios.post("http://localhost:3000/auth/login", {
+            axios.post("http://localhost:3001/auth/login", {
                 username: this.username,
                 password: this.password }
             )
@@ -33,33 +41,3 @@ export default {
 }
 
 </script>
-
-<style>
-form {
-    max-width: 420px;
-    margin: 30px auto;
-    background: white;
-    text-align: left;
-    padding: 40px;
-    border-radius: 10px;
-}
-label {
-    color:#aaa;
-    display: inline-block;
-    margin: 25px 0 15px;
-    font-size: 0.6em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: bold;
-}
-input {
-    display: block;
-    padding: 10px 6px;
-    width: 100%;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 1px solid #ddd;
-    color: #555;
-}
-
-</style>

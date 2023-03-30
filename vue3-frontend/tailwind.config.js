@@ -1,11 +1,11 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{vue,html,js}", "index.html"],
-  darkMode: "class",
+  purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
   },
-  plugins: [
-    require('@tailwindcss/forms')
-  ],
+  variants: {
+    extend: {},
+  },
+  plugins: [],
 }
