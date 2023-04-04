@@ -13,7 +13,7 @@ export class UsersController {
         @Body('username') username: string,
     ): Promise<User> {
         if (await this.usersService.usernameExists(username)){
-            throw new HttpException('User already exists', HttpStatus.BAD_REQUEST);
+            throw new HttpException('User already exists', HttpStatus.CONFLICT);
         }
         const saltOrRounds = 10;
         const hashedPassword = await bcrypt.hash(password, saltOrRounds);
