@@ -12,6 +12,11 @@
         </router-link>
       </li>
       <li class="mr-10">
+        <router-link to="/calendar" class="font-bold hover:border-yellow-400 hover:border-solid hover:border-2 hover:rounded-lg hover:shadow-md hover:bg-yellow-400 hover:text-black-900 p-2 text-gray-300 hover:text-black">
+          Calendar
+        </router-link>
+      </li>
+      <li class="mr-10">
         <router-link to="/login" class="font-bold hover:border-yellow-400 hover:border-solid hover:border-2 hover:rounded-lg hover:shadow-md hover:bg-yellow-400 hover:text-black-900 p-2 text-gray-300 hover:text-black">
           Login
         </router-link>

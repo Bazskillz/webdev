@@ -1,71 +1,65 @@
 <template>
-  <div class="container grid px-6 mx-auto">
-    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-      Buttons
-    </h2>
-
-    <!-- Button sizes -->
-    <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
-      Sizes
-    </h4>
-    <div class="flex flex-col flex-wrap mb-4 space-y-4 md:flex-row md:items-end md:space-x-4">
-      <Button size="xl" :loading="buttons[0].active" :disabled="buttons[0].active" @action="setButtonToLoading(0)">
-        Button
-      </Button>
-
-      <Button size="lg" :loading="buttons[1].active" :disabled="buttons[1].active" @action="setButtonToLoading(1)">
-        Button
-      </Button>
-
-      <Button size="md" :loading="buttons[2].active" :disabled="buttons[2].active" @action="setButtonToLoading(2)">
-        Button
-      </Button>
-    </div>
-    <p class="mb-8 text-gray-700 dark:text-gray-400">
-      Apply
-      <code>w-full</code>
-      to any button to create a block level button.
-    </p>
-
-    <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
-      Icons
-    </h4>
-    <div class="flex flex-col flex-wrap mb-8 space-y-4 md:flex-row md:items-end md:space-x-4">
-      <div>
-        <Button size="md" :icon="HomeIcon" :loading="buttons[3].active" :disabled="buttons[3].active"
-          @action="setButtonToLoading(3)">
-          Icon Left
-        </Button>
+  <navbar />
+  <div class="flex h-screen bg-gray-400">
+  
+    <div class="w-3/4 mx-auto mt-12">
+      <div class="h-96 bg-white rounded-lg shadow-md overflow-y-scroll">
+        <ul class="px-8">
+          <li v-for="(event, index) in jsonData" :key="event.id" :class="{ 'bg-gray-100': index % 2 === 0, 'bg-white': index % 2 !== 0 }">
+            <p class="text-gray-700 font-medium">{{ event.summary }}</p>
+            <ul class="list-disc ml-4">
+              <li class="text-gray-500"><span class="font-medium">Location:</span> {{ event.location }}</li>
+              <li class="text-gray-500"><span class="font-medium">Start Time:</span> {{ event.start.dateTime }}</li>
+              <li class="text-gray-500"><span class="font-medium">End Time:</span> {{ event.end.dateTime }}</li>
+            </ul>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </template>
+<script>
+import axios from 'axios';
+import Navbar from '../components/navbar.vue';
 
-<script setup lang="ts">
-import { ref } from "vue";
-import { CheckIcon, DocumentAddIcon, HomeIcon } from "@heroicons/vue/outline";
-import Button from "../components/Button.vue";
-
-const buttons = ref([
-  {
-    active: false
+export default {
+  components: {
+    navbar: Navbar // Register the component with the correct name
   },
-  {
-    active: false
+  data() {
+    return {
+      selectedDate: new Date(),
+      jsonData: []
+    }
   },
-  {
-    active: false
+  mounted() {
+    axios.get('http://localhost:3001/calendar')
+      .then(response => {
+        this.jsonData = response.data;
+      })
+      .catch(error => {
+        console.log(error);
+      });
   },
-  {
-    active: false
-  },
-])
-
-// @ts-ignore
-function setButtonToLoading(index) {
-  buttons.value[index].active = !buttons.value[index].active
-  setTimeout(() => {
-    buttons.value[index].active = !buttons.value[index].active
-  }, 2000)
+  computed: {
+    formattedEvents() {
+      return this.jsonData.map(event => {
+        return {
+          id: event.id,
+          title: event.description, // or whatever property you want to use as the event title
+          start: new Date(event.start.dateTime),
+          end: new Date(event.end.dateTime),
+        };
+      });
+    }
+  }
 }
 </script>
+
+
+<style>
+.vdp-datepicker__calendar {
+  display: inline-block;
+  vertical-align: top;
+}
+</style>

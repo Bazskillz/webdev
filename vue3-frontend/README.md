@@ -1,36 +1,26 @@
-# windmill-dashboard-vue3
+Vue 3 starter project for rijschool planning app. 
 
-This is a Vue 3 clone of [@estevanmaito](https://github.com/estevanmaito)'s [Windmill Dashboard](https://github.com/estevanmaito/windmill-dashboard).
+##To start the Vue3 Server run
 
-![](/public/cover.png)
+cd vue3-frontend && npm run dev
 
-## Pages
+##Todo:
+"""
+* Backend Register account logic (check for existing users)
+* Create customer/pupil account logic 
 
-- Index
-- Buttons
-- Cards 
-- Tables
-- Charts [Coming Soon]  
-- Forms [Coming Soon]  
-- Modals [Coming Soon]  
+* Design dashboard page (Vue3 + TailwindCSS)
+* Design dashboard page backend logic (Vue3 + NestJS)
+* Build dashboard page (Vue3 + TailwindCSS)
+* Build dashboard page backend logic (Vue3 + NestJS)
 
-## Components
+* Design financial page (Vue3 + TailwindCSS)
+* Design financial page backend logic (Vue3 + NestJS)
+* Build financial page (Vue3 + TailwindCSS)
+* Build financial page backend logic (Vue3 + NestJS)
 
-- Button
-- Card
-- Loader
-- Sidebar
-- Navigation
-- Call To Action
-- TableRow
-- Modal [Coming Soon]
-
-## Live Versions
-
-Vue 3.0 [Live Version](https://windmill.bydiamond.co.uk)  
-
-Estavan's [Live Version](https://windmillui.com/dashboard-html)  
-
-## Credit
-
-All credit goes to Estevan Maito for building the original Dashboard, I simply ported across to Vue 😀
+* Design create account page (Vue3 + TailwindCSS)
+* Design create account page backend logic (Vue3 + NestJS)
+* Build create account page (Vue3 + TailwindCSS)
+* Build create account page backend logic (Vue3 + NestJS)
+"""
