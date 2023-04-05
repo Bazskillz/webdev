@@ -1,6 +1,6 @@
 export interface SimpleCalendarEvent {
-    id: string;
-
+    summary: string;
+    location: string;
     start: {
       date: string;
       dateTime: string;
