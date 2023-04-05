@@ -37,7 +37,7 @@
       </form>
     </div>
   </div>
-</template>
+</template> 
 
 <script>
 import axios from 'axios';
@@ -48,17 +48,21 @@ export default {
     navbar: Navbar
   },
   data() {
-    return {
-      selectedDate: new Date(),
-      jsonData: [],
-      newEvent: {
-        summary: "",
-        location: "",
-        start: "",
-        end: ""
+  return {
+    selectedDate: new Date(),
+    jsonData: [],
+    newEvent: {
+      summary: "",
+      location: "",
+      start: {
+        dateTime: ""
+      },
+      end: {
+        dateTime: ""
       }
     }
-  },
+  }
+},
   mounted() {
     axios.get('http://localhost:3001/calendar/api')
       .then(response => {
@@ -99,7 +103,7 @@ export default {
   };
 
   // Call the server to save the new event
-  await this.$axios.post('/calendar', event);
+  await axios.post('http://localhost:3001/calendar/api', event);
 
   // Clear the form
   this.newEvent = { summary: '', location: '', start: { dateTime: '' }, end: { dateTime: '' } };
