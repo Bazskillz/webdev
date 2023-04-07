@@ -2,11 +2,9 @@ export interface SimpleCalendarEvent {
     summary: string;
     location: string;
     start: {
-      date: string;
       dateTime: string;
     };
     end: {
-      date: string;
       dateTime: string;
     };
   }

@@ -9,8 +9,9 @@ export class CalendarController {
 
   @Post('api')
   async create(@Body() createCalendarEventDto: CreateCalendarEventDto) {
-    await this.calendarService.create(createCalendarEventDto);
+    await this.calendarService.createEvent(createCalendarEventDto);
   }
+  
   @Get('api')
   async findAll(): Promise<SimpleCalendarEvent[]> {
     return this.calendarService.findAll();

@@ -9,11 +9,11 @@ export class CalendarEvent extends Document {
   @Prop()
   location: string;
 
-  @Prop()
-  start: Date;
+  @Prop({ type: () => ({ dateTime: String }) })
+  start: Record<string, any>;
 
-  @Prop()
-  end: Date;
+  @Prop({ type: () => ({ dateTime: String }) })
+  end: Record<string, any>;
 }
 
 export const CalendarEventSchema = SchemaFactory.createForClass(CalendarEvent);

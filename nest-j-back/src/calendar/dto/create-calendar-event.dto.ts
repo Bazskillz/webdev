@@ -11,13 +11,11 @@ export class CreateCalendarEventDto {
 
   @IsNotEmpty()
   start: {
-    date: string;
     dateTime: string;
   };
 
   @IsNotEmpty()
   end: {
-    date: string;
     dateTime: string;
   };
 }

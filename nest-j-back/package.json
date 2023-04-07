@@ -29,6 +29,7 @@
     "@nestjs/platform-express": "^9.0.0",
     "@types/bcrypt": "^5.0.0",
     "class-validator": "^0.14.0",
+    "moment": "^2.29.4",
     "mongoose": "^6.6.5",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.0",

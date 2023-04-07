@@ -1,19 +1,20 @@
 <template>
   <navbar />
   <div class="flex h-screen bg-gray-400">
-  
     <div class="w-3/4 mx-auto mt-12">
-      <div class="h-96 bg-white rounded-lg shadow-md overflow-y-scroll">
-        <ul class="px-8">
-          <li v-for="(event, index) in jsonData" :key="event.id" :class="{ 'bg-gray-100': index % 2 === 0, 'bg-white': index % 2 !== 0 }">
-            <p class="text-gray-700 font-medium">{{ event.summary }}</p>
-            <ul class="list-disc ml-4">
-              <li class="text-gray-500"><span class="font-medium">Location:</span> {{ event.location }}</li>
-              <li class="text-gray-500"><span class="font-medium">Start Time:</span> {{ event.start.dateTime ? new Date(event.start.dateTime).toLocaleString() : event.start.date }}</li>
-              <li class="text-gray-500"><span class="font-medium">End Time:</span> {{ event.end.dateTime ? new Date(event.end.dateTime).toLocaleString() : event.end.date }}</li>
-            </ul>
-          </li>
-        </ul>
+      <div class="bg-white rounded-lg shadow-md">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-8 py-4">
+          <div v-for="(event, index) in jsonData" :key="event.id" :class="{ 'bg-gray-100': index % 2 === 0, 'bg-white': index % 2 !== 0 }">
+            <div class="bg-white rounded-lg shadow-md p-4">
+              <p class="text-gray-700 font-medium">{{ event.summary }}</p>
+              <div class="grid grid-cols-2 gap-4 mt-4">
+                <div class="text-gray-500"><span class="font-medium">Location:</span> {{ event.location }}</div>
+                <div class="text-gray-500"><span class="font-medium">Start Time:</span> {{ event.start.dateTime ? new Date(event.start.dateTime).toLocaleString() : event.start.date }}</div>
+                <div class="text-gray-500"><span class="font-medium">End Time:</span> {{ event.end.dateTime ? new Date(event.end.dateTime).toLocaleString() : event.end.date }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <form class="mt-4 px-8 py-4 bg-white rounded-lg shadow-md">
         <h3 class="text-lg font-medium mb-4">New Event</h3>
