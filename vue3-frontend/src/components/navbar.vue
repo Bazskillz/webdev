@@ -1,28 +1,28 @@
 <template>
-  <nav class="bg-gray-600 text-white rounded-full">
+  <nav class="bg-gray-400 text-white rounded-full">
     <ul class="flex justify-center items-center py-4">
       <li class="mr-10">
-        <router-link to="/" class="font-bold hover:border-yellow-400 hover:border-solid hover:border-2 hover:rounded-lg hover:shadow-md hover:bg-yellow-400 hover:text-black-900 p-2 text-gray-300 hover:text-black">
+        <router-link to="/" class="text-gray-300 hover:text-black font-bold py-2 px-4 rounded-lg transition-colors duration-300 {{ $route.path === '/' ? 'bg-gray-500 text-white' : '' }}">
           Home
         </router-link>
       </li>
       <li class="mr-10">
-        <router-link to="/about" class="font-bold hover:border-yellow-400 hover:border-solid hover:border-2 hover:rounded-lg hover:shadow-md hover:bg-yellow-400 hover:text-black-900 p-2 text-gray-300 hover:text-black">
+        <router-link to="/about" class="text-gray-300 hover:text-black font-bold py-2 px-4 rounded-lg transition-colors duration-300 {{ $route.path === '/' ? 'bg-gray-500 text-white' : '' }}">
           About
         </router-link>
-      </li>
+              </li>
       <li class="mr-10">
-        <router-link to="/calendar" class="font-bold hover:border-yellow-400 hover:border-solid hover:border-2 hover:rounded-lg hover:shadow-md hover:bg-yellow-400 hover:text-black-900 p-2 text-gray-300 hover:text-black">
+        <router-link to="/calendar" class="text-gray-300 hover:text-black font-bold py-2 px-4 rounded-lg transition-colors duration-300 {{ $route.path === '/' ? 'bg-gray-500 text-white' : '' }}">
           Calendar
         </router-link>
       </li>
       <li class="mr-10">
-        <router-link to="/login" class="font-bold hover:border-yellow-400 hover:border-solid hover:border-2 hover:rounded-lg hover:shadow-md hover:bg-yellow-400 hover:text-black-900 p-2 text-gray-300 hover:text-black">
+        <router-link to="/login" class="text-gray-300 hover:text-black font-bold py-2 px-4 rounded-lg transition-colors duration-300 {{ $route.path === '/' ? 'bg-gray-500 text-white' : '' }}">
           Login
-        </router-link>
+        </router-link>>
       </li>
       <li>
-        <router-link to="/register" class="font-bold hover:border-yellow-400 hover:border-solid hover:border-2 hover:rounded-lg hover:shadow-md hover:bg-yellow-400 hover:text-black-900 p-2 text-gray-300 hover:text-black">
+        <router-link to="/register" class="text-gray-300 hover:text-black font-bold py-2 px-4 rounded-lg transition-colors duration-300 {{ $route.path === '/' ? 'bg-gray-500 text-white' : '' }}">
           Register
         </router-link>
       </li>
@@ -41,24 +41,24 @@ li {
 
 /* Add border lighting on hover */
 a:hover {
-  border-color: #FBBF24;
+  border-color: #0E8388;
   border-width: 2px;
   border-style: solid;
-  box-shadow: 0px 0px 5px 0px #FBBF24;
+  box-shadow: 0px 0px 5px 0px #0E8388;
 }
 
 /* Add styles to router-link tags */
 .router-link-exact-active {
-  border-color: #FBBF24;
+  border-color: #CBE4DE;
   border-width: 2px;
   border-style: solid;
-  box-shadow: 0px 0px 5px 0px #FBBF24;
-  background-color: #FBBF24;
-  color: #1a202c;
+  box-shadow: 0px 0px 5px 0px #CBE4DE;
+  background-color: #CBE4DE;
+  color: #2C3333;
 }
 .router-link-exact-active:hover {
-  background-color: #FBBF24;
-  color: #1a202c;
+  background-color: #CBE4DE;
+  color: #2C3333;
 }
 </style>
 
