@@ -1,5 +1,5 @@
 <template>
-  <navbar />
+  <navbar/>
   <div class="w-3/4 mx-auto mt-12">
     <button
       class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 mt-4"
@@ -14,33 +14,21 @@
 
 <script>
 import axios from 'axios';
-import Navbar from '../components/navbar.vue';
 import { ref } from 'vue';
 import NewEventForm from '../components/NewEventForm.vue';
 import CurrentEvents from '../components/CurrentEvents.vue';
+import navbar from '../components/navbar.vue';
 
 export default {
   components: {
-  Navbar,
   NewEventForm,
-  CurrentEvents
+  CurrentEvents,
+  navbar
 },
   data() {
     return {
       showForm: false,
-      selectedDate: new Date(),
       jsonData: [],
-      newEvent: {
-        summary: "",
-        location: "",
-        start: {
-          dateTime: ""
-        },
-        end: {
-          dateTime: ""
-        }
-      },
-      dateFormat: 'dd-MM-yyyyTHH:mm'
     };
   },
   mounted() {
@@ -76,4 +64,4 @@ export default {
     }
   }
 };
-</script> 
+</script>
