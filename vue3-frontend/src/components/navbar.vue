@@ -82,21 +82,17 @@ export default {
     const router = useRouter()
 
     const state = reactive({
-      isLoggedIn: !!localStorage.getItem('access_token'),
       username: localStorage.getItem('username') || '',
     })
 
     // Watch for changes to the store state
-    watch(() => state.accessToken, (newToken) => {
-      state.isLoggedIn = !!newToken
+    watch(() => store.state.accessToken, (newToken) => {
       state.username = store.state.username
     })
 
     // Logout function
     const logout = () => {
       store.commit('logout')
-      state.isLoggedIn = false
-      state.username = ''
       localStorage.removeItem('access_token')
       localStorage.removeItem('username')
       router.push('/')
@@ -104,11 +100,10 @@ export default {
 
     // Return reactive state properties and logout function
     return {
-      isLoggedIn: state.isLoggedIn,
+      isLoggedIn: store.getters.isLoggedIn,
       username: state.username,
       logout,
     }
   }
 }
-
 </script>
