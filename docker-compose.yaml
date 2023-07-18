@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  database:
+    image: mongo
+    volumes:
+      - mongodb-data:/data/db
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_DATABASE=user
+      - MONGO_INITDB_ROOT_USERNAME=auth_manager
+      - MONGO_INITDB_ROOT_PASSWORD=PasswordPasswordPassword
+
+  frontend:
+    build:
+      context: ./frontend/vue3-frontend
+      dockerfile: Dockerfile
+    volumes:
+      - frontend-data:/app/dist
+    ports:
+      - 8080:8080
+
+
+  backend:
+    build:
+      context: ./backend/nest-j-backend
+      dockerfile: Dockerfile
+    volumes:
+      - backend-data:/app/dist
+    ports:
+      - 3000:3000
+    depends_on:
+      - database
+    environment:
+      - MONGO_HOST=database
+      - MONGO_PORT=27017
+      - MONGO_DATABASE=user
+      - MONGO_USERNAME=auth_manager
+      - MONGO_PASSWORD=PasswordPasswordPassword
+
+volumes:
+  mongodb-data:
+  frontend-data:
+  backend-data:

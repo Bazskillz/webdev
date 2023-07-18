@@ -37,7 +37,7 @@ export default {
         },
     methods: {
         async submitForm(){
-            axios.post("http://localhost:3001/auth/login", {
+            axios.post("http://localhost:3000/auth/login", {
                 username: this.username,
                 password: this.password
             })

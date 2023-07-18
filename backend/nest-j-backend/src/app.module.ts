@@ -10,8 +10,22 @@ import { CalendarEvent, CalendarEventSchema } from './calendar/schemas/calendar-
 import { CalendarService } from './calendar/calendar.service';
 
 
+const MONGO_HOST = 'database';
+const MONGO_PORT = 27017;
+const MONGO_DATABASE = 'user';
+const MONGO_USERNAME = 'auth_manager';
+const MONGO_PASSWORD = 'PasswordPasswordPassword';
+
 @Module({
-  imports: [MongooseModule.forRoot('mongodb://auth_manager:Jemoeder123123@127.0.0.1:27017/user'), MongooseModule.forFeature([{ name: CalendarEvent.name, schema: CalendarEventSchema }]), UsersModule, AuthModule, CalendarModule],
+  imports: [
+    MongooseModule.forRoot(
+      `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}:${MONGO_PORT}/${MONGO_DATABASE}`,
+    ),
+    MongooseModule.forFeature([{ name: CalendarEvent.name, schema: CalendarEventSchema }]),
+    UsersModule,
+    AuthModule,
+    CalendarModule,
+  ],
   controllers: [AppController, CalendarController],
   providers: [AppService, CalendarService],
 })

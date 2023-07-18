@@ -1,0 +1,11 @@
+FROM mongo:latest
+
+VOLUME /data/db
+
+# Update MongoDB configuration file to allow connections from other containers
+RUN echo "bind_ip_all=true" >> /etc/mongodb.conf
+
+# Expose the necessary port for your MongoDB instance
+EXPOSE 27017
+
+CMD ["mongod", "--config", "/etc/mongodb.conf"]

@@ -25,7 +25,7 @@ export default {
     }
   },
   mounted() {
-    axios.get('http://localhost:3001/calendar/api')
+    axios.get('http://localhost:3000/calendar/api')
       .then(response => {
         this.jsonData = response.data;
       })

@@ -74,7 +74,7 @@ export default {
   };
   console.log(event)
   try {
-    await axios.post('http://localhost:3001/calendar/api', event);
+    await axios.post('http://localhost:3000/calendar/api', event);
     this.newEvent = {
       summary: '',
       location: '',

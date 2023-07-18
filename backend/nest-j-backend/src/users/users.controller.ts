@@ -9,8 +9,8 @@ export class UsersController {
 
     @Post('/signup')
     async createUser(
-        @Body('password') password: string,
         @Body('username') username: string,
+        @Body('password') password: string,
     ): Promise<User> {
         if (await this.usersService.usernameExists(username)){
             throw new HttpException('User already exists', HttpStatus.CONFLICT);

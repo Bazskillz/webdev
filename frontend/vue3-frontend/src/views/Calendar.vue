@@ -32,7 +32,7 @@ export default {
     };
   },
   mounted() {
-    axios.get('http://localhost:3001/calendar/api')
+    axios.get('http://localhost:3000/calendar/api')
       .then(response => {
         this.jsonData = response.data;
       })
@@ -56,7 +56,7 @@ export default {
     },
     async loadEvents() {
       try {
-        const response = await axios.get('http://localhost:3001/calendar/api');
+        const response = await axios.get('http://localhost:3000/calendar/api');
         this.jsonData = response.data;
       } catch (error) {
         console.log(error);
