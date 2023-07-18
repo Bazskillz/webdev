@@ -35,19 +35,25 @@ export default {
             password:''
             }
         },
-    methods: {
-        async submitForm(){
-            axios.post("http://localhost:3000/auth/login", {
-                username: this.username,
-                password: this.password
-            })
-            .then(response => {
-                console.log(response);
-                localStorage.setItem('access_token', response.data.access_token);
-                localStorage.setItem('username', this.username);
-                this.$router.push('/');
-            })
-            .catch(error => console.log(error));
+methods: {
+    async submitForm() {
+      axios.post("http://localhost:3000/auth/login", {
+        username: this.username,
+        password: this.password
+      })
+      .then(response => {
+        console.log(response);
+        const cookie = {
+          name: 'access_token',
+          value: response.data.access_token,
+          httpOnly: true,
+          expires: new Date(Date.now() + 30 * 60 * 1000), // expires in 30 minutes
+        };
+        document.cookie = JSON.stringify(cookie);
+        this.$router.push('/');
+      })
+      .catch(error => console.log(error));
+
         }
     },
     components: {
