@@ -37,12 +37,3 @@ export default {
 }
 </script>
 
-<style scoped>
-.about h1 {
-  color: #2E4F4F;
-}
-
-.about p {
-  color: #2C3333;
-}
-</style>

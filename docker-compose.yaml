@@ -37,8 +37,9 @@ services:
       - MONGO_DATABASE=user
       - MONGO_USERNAME=auth_manager
       - MONGO_PASSWORD=PasswordPasswordPassword
-
+# volumes, mount mongodb-data externally (on local created volume)
 volumes:
   mongodb-data:
+    external: true
   frontend-data:
   backend-data:

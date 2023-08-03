@@ -1,32 +1,55 @@
 <template>
-  <div class="register-form-container">
-    <navbar/> 
-    <div class="flex items-center justify-center h-screen">
-      <form class="flex flex-col space-y-6 w-96 p-6 bg-white rounded-lg shadow-lg" @submit.prevent="submitForm">
-      <h2 class="text-2xl font-bold mb-6">Register</h2>
-        <div class="flex flex-col space-y-1">
-          <label for="username" class="text-gray-700 font-medium">Email:</label>
-          <input id="username" type="email" required v-model="username" @keyup="validateEmail" class="rounded-lg border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 px-4 py-2">
+  <div class="flex items-center justify-center h-screen">
+    <div class="w-96">
+      <div class="text-center">
+        <h2 class="text-2xl font-bold mb-6">Register</h2>
+        <p class="mb-4 text-black">Please enter your email and a password to create your account.</p>
+        <div class="flex flex-col">
+          <input
+            id="username"
+            type="email"
+            required
+            v-model="username"
+            @keyup="validateEmail"
+            class="text-black rounded-lg border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 px-4 py-2 mb-4"
+            placeholder="Email"
+          >
           <p v-if="emailTaken" class="text-red-500 text-sm font-semibold mt-1">Email taken!</p>
-          <p v-if="accountCreated" class="text-green-500 text-sm font-semibold mt-1">
-              Account has been successfully created.
-              <a href="/auth/login">Login</a>
+          <input
+            id="password"
+            type="password"
+            required
+            v-model="password"
+            class="text-black rounded-lg border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 px-4 py-2 mb-4"
+            placeholder="Password"
+          >
+          <input
+            id="confirmPassword"
+            type="password"
+            required
+            v-model="confirmPassword"
+            @keyup="validatePassword"
+            class="text-black rounded-lg border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 px-4 py-2 mb-4"
+            placeholder="Confirm Password"
+          >
+          <p v-if="passwordsMatch === false" class="text-red-500 text-sm font-semibold mt-1">Passwords do not match!</p>
+          <button
+            :disabled="emailTaken || !passwordsMatch"
+            @click="submitForm"
+            class="mt-4 bg-green-500 text-white rounded-lg px-4 py-2 hover:bg-green-600 transition duration-200"
+            type="button"
+          >
+            Create Account
+          </button>
+          <p class="mt-2 text-black">
+            Already registered? <a href="/auth/login">Click here</a> to sign in.
           </p>
         </div>
-        <div class="flex flex-col space-y-1">
-          <label for="password" class="text-gray-700 font-medium">Password:</label>
-          <input id="password" type="password" required v-model="password" class="rounded-lg border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 px-4 py-2">
-        </div>
-        <div class="flex flex-col space-y-1">
-          <label for="confirmPassword" class="text-gray-700 font-medium">Confirm Password:</label>
-          <input id="confirmPassword" type="password" required v-model="confirmPassword" @keyup="validatePassword" class="rounded-lg border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400 px-4 py-2">
-          <p v-if="passwordsMatch === false" class="text-red-500 text-sm font-semibold mt-1">Passwords do not match!</p>
-        </div>
-        <button type="submit" :disabled="emailTaken || passwordsMatch === false" class="bg-green-500 text-white rounded-lg px-4 py-2 hover:bg-green-600 transition duration-200">Create Account</button>
-      </form>
+      </div>
     </div>
   </div>
 </template>
+
 
 <script>
 import axios from 'axios'
@@ -55,7 +78,7 @@ export default {
       }
     },
     submitForm() {
-      if (this.passwordsMatch === false) {
+      if (!this.passwordsMatch) {
         return;
       }
       axios.post("http://localhost:3000/auth/signup", {
@@ -66,7 +89,7 @@ export default {
         // Handle successful response here
         this.emailTaken = false;
         this.accountCreated = true;
-        this.$router.push("/auth/login");
+        this.$router.push("/login");
       })
       .catch(error => {
         if (error.response.status === 409) {
@@ -82,5 +105,3 @@ export default {
   }
 }
 </script>
-
-

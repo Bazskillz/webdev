@@ -1,6 +1,6 @@
 FROM mongo:latest
 
-VOLUME /data/db
+VOLUME mongodb-data
 
 # Update MongoDB configuration file to allow connections from other containers
 RUN echo "bind_ip_all=true" >> /etc/mongodb.conf

@@ -1,6 +1,6 @@
 <template>
   <navbar />
-  <div class="dashboard" style="background-color: #FDF2E9; padding: 2rem; min-height: calc(100vh - 6rem);">
+  <div class="dashboard bg-gray-400">
     <div class="flex justify-center items-center h-80">
       <div class="bg-gray-100 p-8 rounded-lg shadow-lg">
         <h2 class="text-2xl font-bold text-gray-800 mb-4">Dashboard</h2>
